@@ -145,9 +145,9 @@ func New(endpoint string, opts *Options) (*Client, error) {
 	}
 	// If Amazon S3 set to signature v4.
 	if s3utils.IsAmazonEndpoint(*clnt.endpointURL) {
-		clnt.overrideSignerType = credentials.SignatureV4
+		clnt.overrideSignerType = credentials.SignatureV2
 	}
-
+	clnt.overrideSignerType = credentials.SignatureV2
 	return clnt, nil
 }
 
