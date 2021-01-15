@@ -245,7 +245,7 @@ func ToObjectInfo(bucketName string, objectName string, h http.Header) (ObjectIn
 
 	// Parse Last-Modified has http time format.
 	date, err := time.Parse(http.TimeFormat, h.Get("Last-Modified"))
-	if err != nil {
+	/*if err != nil {
 		return ObjectInfo{}, ErrorResponse{
 			Code:       "InternalError",
 			Message:    fmt.Sprintf("Last-Modified time format is invalid, failed with %v", err),
@@ -255,7 +255,7 @@ func ToObjectInfo(bucketName string, objectName string, h http.Header) (ObjectIn
 			HostID:     h.Get("x-amz-id-2"),
 			Region:     h.Get("x-amz-bucket-region"),
 		}
-	}
+	}*/
 
 	// Fetch content type if any present.
 	contentType := strings.TrimSpace(h.Get("Content-Type"))
